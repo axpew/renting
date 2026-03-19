@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
 </head>
 <body>
-<h1>Welcome to the Video Renting Application!</h1>
-<p>Use the navigation menu to explore the application.</p>
+    <h1>Welcome, <span th:text="${miNombre}"></span>!</h1>
+    <h2>Películas</h2>
+    <ul>
+        <li th:each="pelicula : ${peliculas}" th:text="${pelicula}"></li>
+    </ul>
 </body>
 </html>

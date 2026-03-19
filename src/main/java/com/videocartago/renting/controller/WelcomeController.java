@@ -5,11 +5,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
+
 @Controller
 public class WelcomeController {
-   @RequestMapping(value="/", method=RequestMethod.GET)
-   public String welcome(Model model){
+    @RequestMapping(value="/", method=RequestMethod.GET)
+    public String welcome(Model model) {
         model.addAttribute("miNombre", "Alejandro");
-       return "welcome"; // corresponde al nombre de la plantilla
-   }
+
+        List<String> peliculas = List.of(
+            "Mr. Robot",
+            "The Batman",
+            "Interstellar",
+            "Breaking Bad",
+            "Death Note",
+            "Kingdom",
+            "One Punch Man"
+        );
+        model.addAttribute("peliculas", peliculas);
+
+        return "welcome";
+    }
 }
